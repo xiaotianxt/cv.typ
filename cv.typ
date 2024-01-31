@@ -93,6 +93,17 @@
     ]
 ]
 
+#let cvprofile(info, uservars) = {
+    // 这里展示一段个人陈述
+    if info.personal.profile != none {
+        block(width: 100%)[
+            == Personal Profile
+            #set text(font: uservars.bodyfont, size: uservars.fontsize * 1)
+            #info.personal.profile
+        ]
+    } else {none}
+}
+
 #let cvheading(info, uservars) = {
     align(center)[
         = #info.personal.name
