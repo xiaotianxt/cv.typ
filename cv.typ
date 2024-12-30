@@ -99,7 +99,7 @@
         block(width: 100%)[
             == Personal Profile
             #set text(font: uservars.bodyfont, size: uservars.fontsize * 1)
-            #info.personal.profile
+            #eval(info.personal.profile, mode: "markup")
         ]
     } else {none}
 }
@@ -114,7 +114,7 @@
 
 #let cvwork(info, isbreakable: true) = {
     if info.work != none {block[
-        == Work Experience
+        == Professional Experience
         #for w in info.work {
             block(width: 100%, breakable: isbreakable)[
                 // line 1: company and location
@@ -346,7 +346,7 @@
     place(
         bottom + right,
         block[
-            #set text(size: 5pt, font: "Consolas", fill: silver)
+            #set text(size: 5pt, font: "Fira Code", fill: silver)
             \*This document was last updated on #datetime.today().display("[year]-[month]-[day]") using #strike[LaTeX] #link("https://typst.app")[Typst].
         ]
     )
